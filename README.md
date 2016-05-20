@@ -1,6 +1,9 @@
 # DCMS / Core
 
 this package set's up the routes and controllers for login,  dashboard, users, settings
+the SQL folder holds the SQL to execute in your database
+a new database has to be configured in your app/database.php named "project"
+
 
 ## Extra in config/app.php
 New alias:
