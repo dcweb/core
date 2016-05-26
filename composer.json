@@ -1,6 +1,7 @@
 {
     "name": "dcms/core",
     "description": "\"DCMS Core package, has the basic login and default dashboard\"",
+    "license": "MIT",
     "authors": [
         {
             "name": "web",

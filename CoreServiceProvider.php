@@ -23,14 +23,14 @@ class CoreServiceprovider extends ServiceProvider{
    $this->setupRoutes($this->app->router);
    // this  for conig
    $this->publishes([
-      // __DIR__.'/config/contact.php' => config_path('contact.php'),
-      __DIR__.'/resources/views' => resource_path('views/vendor/dcms/core'),
-      __DIR__.'/public/assets' => public_path('packages/dcms/core'),
+      //// __DIR__.'/config/contact.php' => config_path('contact.php'),
+      //__DIR__.'/resources/views' => resource_path('views/vendor/dcms/core'),
+      //__DIR__.'/public/assets' => public_path('packages/dcms/core'),
       __DIR__.'/config/auth.php' => config_path('dcms/core/auth.php'),
    ]);
 
+    $this->app['config']['dcms_sidebar'] =  config('dcms.core.dcms_sidebar');
     $this->app['config']['auth'] = array_replace_recursive($this->app["config"]["auth"], config('dcms.core.auth'));
-
  }
  /**
   * Define the routes for the application.
