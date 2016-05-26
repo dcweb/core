@@ -9,7 +9,15 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {},
+    "require": {
+
+          "php": ">=5.5.9",
+          "laravel/framework": "5.2.*",
+          "barryvdh/laravel-debugbar": "^2.2",
+          "laravelcollective/html": "^5.2",
+          "chumper/datatable": "dev-develop"
+
+    },
     "autoload": {
         "psr-4": {
             "Dcms\\Core\\": "/"
