@@ -15,7 +15,7 @@
           "laravel/framework": "5.2.*",
           "barryvdh/laravel-debugbar": "^2.2",
           "laravelcollective/html": "^5.2",
-          "chumper/datatable": "dev-develop"
+          "chumper/datatable": "dev"
 
     },
     "autoload": {
