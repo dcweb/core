@@ -25,8 +25,9 @@ class CoreServiceprovider extends ServiceProvider{
    $this->publishes([
       //// __DIR__.'/config/contact.php' => config_path('contact.php'),
       //__DIR__.'/resources/views' => resource_path('views/vendor/dcms/core'),
-      //__DIR__.'/public/assets' => public_path('packages/dcms/core'),
+      __DIR__.'/public/assets' => public_path('packages/dcms/core'),
       __DIR__.'/config/auth.php' => config_path('dcms/core/auth.php'),
+      __DIR__.'/config/dcms_sidebar.php' => config_path('dcms/core/dcms_sidebar.php'),
    ]);
 
     $this->app['config']['dcms_sidebar'] =  config('dcms.core.dcms_sidebar');
