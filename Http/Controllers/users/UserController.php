@@ -162,15 +162,12 @@ class UserController extends Controller
 		//
 		// get all the users
 //		$users = User::all();
-		$users = User::paginate(5);
+		//$users = User::paginate(5);
 
 		// load the view and pass the users
-		return View::make('dcms::users/index')
-			->with('users', $users);
+		return View::make('dcms::users/index');
+			//->with('users', $users);
 	}
-
-
-
 
 	public function getDatatable()
 	{

@@ -1,8 +1,6 @@
 <?php
 
 Route::group(['middleware' => ['web']], function () {
-  Route::get('timezones/{timezone}',  'CoreController@index');
-
 	Route::group( array("prefix" => "admin"), function() {
 
 		Route::get("/", function() { return Redirect::to("admin/login"); });
