@@ -22,11 +22,11 @@
   @endif
 
 	<h2>{!! Auth::guard('dcms')->user()->name !!}</h2>
-	
+
 {!! Form::model($user, array('route' => array('admin/profile/edit'), 'method' => 'POST')) !!}
 
 @if($errors->any())
-  <div class="alert alert-danger">{!! HTML::ul($errors->all()) !!}</div>
+  <div class="alert alert-danger">{!! Html::ul($errors->all()) !!}</div>
 @endif
 
 
@@ -34,27 +34,27 @@
 		{!! Form::label('username', 'Username') !!}
 		{!! Form::text('username', null, array('class' => 'form-control', 'readonly')) !!}
 	</div>
-  
+
 	<div class="form-group">
 		{!! Form::label('name', 'Name') !!}
 		{!! Form::text('name', null, array('class' => 'form-control')) !!}
 	</div>
-	
+
 	<div class="form-group">
 		{!! Form::label('email', 'Email') !!}
 		{!! Form::text('email', null, array('class' => 'form-control')) !!}
 	</div>
-	
+
   <div class="form-group">
     {!! Form::label('password', 'Current Password') !!}
     {!! Form::password('password', array('class' => 'form-control')) !!}
   </div>
-  
+
   <div class="form-group">
     {!! Form::label('newpassword', 'New Password') !!}
     {!! Form::password('newpassword', array('class' => 'form-control')) !!}
   </div>
-  
+
   <div class="form-group">
     {!! Form::label('newpasswordrepeat', 'Repeat New Password') !!}
     {!! Form::password('newpasswordrepeat', array('class' => 'form-control')) !!}
@@ -64,7 +64,7 @@
   <a href="{!! URL::previous() !!}" class="btn btn-default">Cancel</a>
 
 {!! Form::close() !!}
-      
+
 	      	</div>
       	</div>
       </div>
