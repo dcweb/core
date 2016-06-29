@@ -35,7 +35,7 @@ class CountryController extends BaseController {
 											->select(
 														'countries.id',
 														'countries.country_name',
-														(DB::connection("project")->raw('Concat("<img src=\'/packages/dcweb/dcms/assets/images/flag-",lcase(country),".png\' >") as country'))
+														(DB::connection("project")->raw('Concat("<img src=\'/packages/dcms/core/images/flag-",lcase(country),".png\' >") as country'))
 													)
 		)
 

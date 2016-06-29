@@ -40,7 +40,7 @@ class LanguageController extends BaseController {
 														'languages.id',
 														'languages.language',
 														'languages.language_name',
-														(DB::connection("project")->raw('Concat("<img src=\'/packages/dcweb/dcms/assets/images/flag-",lcase(country),".png\' >") as country'))
+														(DB::connection("project")->raw('Concat("<img src=\'/packages/dcms/core/images/flag-",lcase(country),".png\' >") as country'))
 													)
 											//->join('articles_language','articles.id','=','articles_language.article_id')
 											//->leftJoin('languages','articles_language.language_id', '=' , 'languages.id')
