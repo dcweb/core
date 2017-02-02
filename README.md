@@ -15,7 +15,7 @@ New alias:
 #SQL
 execute the SQL you'll find in the SQL folder
 This will create 3 tables ( users, countries, languages)
-You can login with the default user: U:admin, P:dcmsadmin
+
 
 #Database
 	config/database.php
