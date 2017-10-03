@@ -26,12 +26,12 @@
 {!! Form::model($user, array('route' => array('admin.users.update', $user->id), 'method' => 'PUT')) !!}
 @else
 	<h2>Create User</h2>
-
+	
 {!! Form::open(array('url' => 'admin/users')) !!}
 @endif
 
 @if($errors->any())
-  <div class="alert alert-danger">{!! Html::ul($errors->all()) !!}</div>
+  <div class="alert alert-danger">{!! HTML::ul($errors->all()) !!}</div>
 @endif
 
 
@@ -39,22 +39,22 @@
 		{!! Form::label('name', 'Name') !!}
 		{!! Form::text('name', null, array('class' => 'form-control')) !!}
 	</div>
-
+	
 	<div class="form-group">
 		{!! Form::label('username', 'Username') !!}
 		{!! Form::text('username', null, array('class' => 'form-control')) !!}
 	</div>
-
+  
 	<div class="form-group">
 		{!! Form::label('role', 'Role') !!}
 		{!! Form::select('role', array('user' => 'user', 'administrator'=>'administrator'), null,  array('class' => 'form-control')) !!}
 	</div>
-
+	
 	<div class="form-group">
 		{!! Form::label('email', 'Email') !!}
 		{!! Form::text('email', null, array('class' => 'form-control')) !!}
 	</div>
-
+	
 	<div class="form-group">
 		{!! Form::label('password', 'Password') !!}
 		{!! Form::password('password', array('class' => 'form-control')) !!}
@@ -71,7 +71,7 @@
   <a href="{!! URL::previous() !!}" class="btn btn-default">Cancel</a>
 
 {!! Form::close() !!}
-
+      
 	      	</div>
       	</div>
       </div>

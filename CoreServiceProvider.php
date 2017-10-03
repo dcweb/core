@@ -51,23 +51,15 @@ class CoreServiceprovider extends ServiceProvider{
 
  public function register()
  {
-
    $this->registerCore();
-   //b// config([
-   //b//    'config/contact.php',
-   //b// ]);
-
  }
 
  private function registerCore()
  {
-
    $this->app->bind('core',function($app){
      return new Core($app);
    });
-
  }
-
 }
 
  ?>

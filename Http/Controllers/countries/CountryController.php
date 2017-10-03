@@ -10,7 +10,7 @@ use Session;
 use Validator;
 use Redirect;
 use DB;
-use Datatable;
+use Datatables;
 use Auth;
 use DateTime;
 use Dcms\Core\Http\Controllers\BaseController;
@@ -29,26 +29,16 @@ class CountryController extends BaseController {
 
 	public function getDatatable()
 	{
-		return Datatable::Query(
-									DB::connection('project')
-											->table('countries')
-											->select(
-														'countries.id',
-														'countries.country_name',
-														(DB::connection("project")->raw('Concat("<img src=\'/packages/dcms/core/images/flag-",lcase(country),".png\' >") as country'))
-													)
-		)
-
-						->showColumns('country_name','country')
-						->addColumn('edit',function($model){return '<form class="pull-right"> <a class="btn btn-xs btn-default" href="/admin/settings/countries/'.$model->id.'/edit"><i class="fa fa-pencil"></i></a></form>';})
-						/*->addColumn('edit',function($model){return '<form method="POST" action="/admin/settings/countries/'.$model->id.'" accept-charset="UTF-8" class="pull-right">
-								<input name="_token" type="hidden" value="'.csrf_token().'">
-								<input name="_method" type="hidden" value="DELETE">
-								<a class="btn btn-xs btn-default" href="/admin/settings/countries/'.$model->id.'/edit"><i class="fa fa-pencil"></i></a>
-								<button class="btn btn-xs btn-default" type="submit" value="Delete this article" onclick="if(!confirm(\'Are you sure to delete this item?\')){return false;};"><i class="fa fa-trash-o"></i></button>
-							</form>';})*/
-						->searchColumns('country','country_name')
-						->make();
+        return Datatables::queryBuilder(DB::connection("project")
+                                                ->table("countries")
+												->select(
+															'countries.id',
+															'countries.country_name',
+															(DB::connection("project")->raw('Concat("<img src=\'/packages/dcms/core/images/flag-",lcase(country),".png\' >") as country'))
+														)->orderBy('countries.country_name'))
+                        ->addColumn('edit', '<form class="pull-right"> <a class="btn btn-xs btn-default" href="/admin/settings/countries/{{$id}}/edit"><i class="fa fa-pencil"></i></a></form>')
+                        ->rawColumns(['country','edit'])
+                        ->make(true) ;
 	}
 
 

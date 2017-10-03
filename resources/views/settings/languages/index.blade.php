@@ -24,20 +24,36 @@
 
     <h2>Overview</h2>
 
- {!! Datatable::table()
-    ->setId('datatable')
-    ->addColumn('Language')
-    ->addColumn('Country')
-		->addColumn('')
-    ->setUrl(route('admin/settings/languages/api/table'))
-    ->setOptions(array(
-        'pageLength' => 50,
-        ))
-    ->render() !!}
 
-    
+
+    <table id="datatable" class="table table-hover table-condensed" style="width:100%">
+        <thead>
+            <tr>
+                <th>Language</th>
+                <th>Country</th>
+                <th></th>
+            </tr>
+        </thead>
+    </table>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    oTable = $('#datatable').DataTable({
+        "pageLength": 9999,
+        "processing": true,
+        "serverSide": false,
+        "ajax": "{{ route('admin.settings.languages.api.table') }}",
+        "columns": [
+            {data: 'language', name: 'language'},
+            {data: 'language_name', name: 'LN'},
+            {data: 'edit', name: 'edit'}
+        ]
+    });
+});
+</script>
+
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/plug-ins/be7019ee387/integration/bootstrap/3/dataTables.bootstrap.css">
-    
+
     <script type="text/javascript" language="javascript" src="//cdn.datatables.net/1.10.0/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" language="javascript" src="//cdn.datatables.net/plug-ins/be7019ee387/integration/bootstrap/3/dataTables.bootstrap.js"></script>
 
@@ -45,5 +61,6 @@
       	</div>
       </div>
     </div>
+
 
 @stop

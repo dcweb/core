@@ -20,7 +20,7 @@
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li class="active"><a href="{!! URL::route('admin/profile') !!}">Logged in as  <b>{{ Auth::guard('dcms')->user()->username }}</b></a></li>
-      <li><a href="{!! URL::route('admin/users/logout') !!}"><i class="fa fa-sign-out"></i> Logout</a></li>
+      <li><a href="{!! URL::route('admin.logout') !!}"><i class="fa fa-sign-out"></i> Logout</a></li>
     </ul>
   </div>
 </div>

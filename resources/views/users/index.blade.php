@@ -1,3 +1,4 @@
+
 @extends("dcms::template/layout")
 
 @section("content")
@@ -23,15 +24,35 @@
 
     <h2>Overview</h2>
 
- {!! Datatable::table()
-    ->setId('datatable')
-    ->addColumn('Name','Email','Username','Role')
-		->addColumn('')
-    ->setUrl(route('admin/users/api/table'))
-    ->setOptions(array(
-        'pageLength' => 50,
-        ))
-    ->render() !!}
+  <table id="datatable" class="table table-hover table-condensed" style="width:100%">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Username</th>
+            <th>Role</th>
+            <th></th>
+        </tr>
+    </thead>
+  </table>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    oTable = $('#datatable').DataTable({
+        "pageLength": 50,
+        "processing": true,
+        "serverSide": true,
+        "ajax": "{{ route('admin.users.api.table') }}",
+        "columns": [
+            {data: 'name', name: 'Name'},
+            {data: 'email', name: 'Email'},
+            {data: 'username', name: 'Username'},
+            {data: 'role', name: 'Role'},
+            {data: 'edit', name: 'edit'}
+        ]
+    });
+});
+</script>
 
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/plug-ins/be7019ee387/integration/bootstrap/3/dataTables.bootstrap.css">
 

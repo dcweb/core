@@ -10,7 +10,7 @@ use Validator;
 use Auth;
 use Redirect;
 Use Dcms\Core\Models\Users\User;
-Use Datatable;
+Use Datatables;
 use DB;
 use Hash;
 use Session;
@@ -137,7 +137,7 @@ class UserController extends Controller
   	{
   	  Auth::guard('dcms')->logout();
 
-  	  return Redirect::route("admin/users/login");
+  	  return Redirect::route("admin.login");
   	}
 
 
@@ -162,26 +162,23 @@ class UserController extends Controller
 		//
 		// get all the users
 //		$users = User::all();
-		//$users = User::paginate(5);
+		$users = User::paginate(5);
 
 		// load the view and pass the users
-		return View::make('dcms::users/index');
-			//->with('users', $users);
+		return View::make('dcms::users/index')
+			->with('users', $users);
 	}
 
 	public function getDatatable()
 	{
-		return Datatable::Query(DB::connection("project")->table("users"))
-						->showColumns('name')
-						->showColumns('email')
-						->showColumns('username')
-						->showColumns('role')
-						->addColumn('edit',function($model){return '<form method="POST" action="/admin/users/'.$model->id.'" accept-charset="UTF-8" class="pull-right"><input name="_token" type="hidden" value="'.csrf_token().'">					<input name="_method" type="hidden" value="DELETE">					<!-- <input class="btn btn-warning" type="submit" value="Delete this User"> -->
-								<a class="btn btn-xs btn-default" href="/admin/users/'.$model->id.'/edit"><i class="fa fa-pencil"></i></a>
+        return Datatables::queryBuilder(DB::connection("project")
+                                                ->table("users"))
+                        ->addColumn('edit', '<form method="POST" action="/admin/users/{{$id}}" accept-charset="UTF-8" class="pull-right"><input name="_token" type="hidden" value="'.csrf_token().'">					<input name="_method" type="hidden" value="DELETE">					<!-- <input class="btn btn-warning" type="submit" value="Delete this User"> -->
+								<a class="btn btn-xs btn-default" href="/admin/users/{{$id}}/edit"><i class="fa fa-pencil"></i></a>
 								<button class="btn btn-xs btn-default" type="submit" value="Delete this article" onclick="if(!confirm(\'Are you sure to delete this item?\')){return false;};"><i class="fa fa-trash-o"></i></button>
-							</form>';})
-						->searchColumns('name','email')
-						->make();
+							</form>')
+                        ->rawColumns(['edit'])
+                        ->make(true) ;
 	}
 
 

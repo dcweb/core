@@ -11,7 +11,7 @@ use Session;
 use Validator;
 use Redirect;
 use DB;
-use Datatable;
+use Datatables;
 use Auth;
 use DateTime;
 use Request;
@@ -33,23 +33,17 @@ class LanguageController extends BaseController {
 
 	public function getDatatable()
 	{
-		return Datatable::Query(
-									DB::connection('project')
-											->table('languages')
-											->select(
-														'languages.id',
-														'languages.language',
-														'languages.language_name',
-														(DB::connection("project")->raw('Concat("<img src=\'/packages/dcms/core/images/flag-",lcase(country),".png\' >") as country'))
-													)
-											//->join('articles_language','articles.id','=','articles_language.article_id')
-											//->leftJoin('languages','articles_language.language_id', '=' , 'languages.id')
-		)
-
-						->showColumns('language_name','country')
-						->addColumn('edit',function($model){return '<form class="pull-right"> <a class="btn btn-xs btn-default" href="/admin/settings/languages/'.$model->id.'/edit"><i class="fa fa-pencil"></i></a></form>';})
-						->searchColumns('language_name')
-						->make();
+        return Datatables::queryBuilder(DB::connection("project")
+                                                ->table("languages")
+												->select(
+															'languages.id',
+															'languages.language',
+															'languages.language_name',
+															(DB::connection("project")->raw('Concat("<img src=\'/packages/dcweb/dcms/assets/images/flag-",lcase(country),".png\' >") as country'))
+														))
+                        ->addColumn('edit', '<form class="pull-right"> <a class="btn btn-xs btn-default" href="/admin/settings/languages/{{$id}}/edit"><i class="fa fa-pencil"></i></a></form>')
+                        ->rawColumns(['country','edit'])
+                        ->make(true) ;
 	}
 
 
