@@ -12,7 +12,17 @@ New provider:
 New alias:
     'Input' => Illuminate\Support\Facades\Input, //we still need this
 
+<<<<<<< HEAD
 
+=======
+#SQL
+execute the SQL you'll find in the SQL folder
+This will create 3 tables ( users, countries, languages)
+
+#Database
+	config/database.php
+		set up the database named "project" where you just ran the SQL from above folder
+>>>>>>> origin/master
 
 ## Extra packages
 * laravelcollective / HTML
