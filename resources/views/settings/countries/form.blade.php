@@ -47,7 +47,7 @@
             
                 <div class="form-group">
                   {!! Form::label('flag', 'Flag') !!}
-                  * the system does not hold the flags by default, you shoud upload a file to: <i><b>/packages/dcweb/dcms/assets/images/flag-XX.png</b></i> - XX holds the lower-case two-letter codes as defined by ISO-3166
+                  * the system does not hold the flags by default, you shoud upload a file to: <i><b>/packages/dcms/core/assets/images/flag-XX.png</b></i> - XX holds the lower-case two-letter codes as defined by ISO-3166
                 </div>
                                                                   
                 <div class="form-group">
@@ -64,5 +64,5 @@
 @stop
 
 @section("script")
-<script type="text/javascript" src="{!! asset('packages/dcweb/dcms/assets/js/bootstrap.min.js') !!}"></script>
+<script type="text/javascript" src="{!! asset('packages/dcms/core/assets/js/bootstrap.min.js') !!}"></script>
 @stop

@@ -65,6 +65,6 @@
 
 @section("script")
 
-<script type="text/javascript" src="{!! asset('packages/dcweb/dcms/assets/js/bootstrap.min.js') !!}"></script>
+<script type="text/javascript" src="{!! asset('packages/dcms/core/assets/js/bootstrap.min.js') !!}"></script>
 
 @stop

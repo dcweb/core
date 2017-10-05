@@ -39,7 +39,7 @@ class LanguageController extends BaseController {
 															'languages.id',
 															'languages.language',
 															'languages.language_name',
-															(DB::connection("project")->raw('Concat("<img src=\'/packages/dcweb/dcms/assets/images/flag-",lcase(country),".png\' >") as country'))
+															(DB::connection("project")->raw('Concat("<img src=\'/packages/dcms/core/assets/images/flag-",lcase(country),".png\' >") as country'))
 														))
                         ->addColumn('edit', '<form class="pull-right"> <a class="btn btn-xs btn-default" href="/admin/settings/languages/{{$id}}/edit"><i class="fa fa-pencil"></i></a></form>')
                         ->rawColumns(['country','edit'])

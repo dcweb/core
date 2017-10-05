@@ -2,9 +2,7 @@
 	<div class="sidebar">
     <ul class="nav nav-sidebar">
 
-
 		@foreach(Config::get('dcms_sidebar') as $group => $groupsettings )
-
 			@if(count($groupsettings['links'])>1)
 			<li class="dropdown">
         		<a href="{!! URL::to($groupsettings['links'][0]['route']) !!}"><i class="fa {{$groupsettings['icon']}}"></i><span>{{$group}}</span><b class="arrow fa fa-angle-down"></b></a>
@@ -22,8 +20,6 @@
 			</li>
 			@endif
 		@endforeach
-
-
 	</ul>
 
     <div class="text-right collapse-button">
