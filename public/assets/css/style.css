@@ -468,6 +468,8 @@ p.top23 {
   width: 100%;
 }
 
+/**** FILTER ****/
+/*dealers*/
 .filter {
   margin-bottom: 24px;
 }
@@ -505,6 +507,13 @@ p.top23 {
 }
 .condition:first-child label:first-child {
   display: none;
+}
+/*articles*/
+.filter .form-group span.select {
+    display: none;
+}
+.filter .form-group span.select.active {
+    display: inline-block;
 }
 
 
@@ -591,8 +600,14 @@ p.top23 {
 }
 }
 
-/**** BUTTONS ****/
+/**** OVERVIEW ****/
+.edit {
+  margin: 0;
+  color: #999;
+  text-align: right;
+}
 
+/**** BUTTONS ****/
 .btnbar {
 }
 .btnbar-right {
@@ -622,20 +637,6 @@ p.top23 {
 	clear: right;
 }
 
-/**** OVERVIEW ****/
-.edit {
-  margin-top: 45px;
-}
-.edit p {
-  font-size: 13px;
-  color: #999;
-  margin-bottom: 0;
-}
-.edit p.title {
-  font-weight: bold;
-  font-style: normal;
-  color: #222;
-}
 /**** DATATABLES ****/
 
 #analytics .google-visualization-table {
@@ -833,13 +834,18 @@ input[type=checkbox].form-checkbox {
 	border-radius: 1px;
 	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
 	font-size: 12px;
-	padding: 0px 6px;
+	padding: 0px 10px 5px;
 }
-.period-group .checkbox-group {
+.period-box .checkbox-group {
 	border-right: none;
+  text-align: center;
 }
-.period-group .checkbox-group:last-child {
+.period-box .checkbox-group:last-of-type {
 	border-right: 1px solid #ccc;
+}
+.period-box .checkbox-group label {
+  padding-top: 5px;
+  display: block;
 }
 .label-group {
 	border: 1px solid #ddd;
