@@ -268,7 +268,7 @@ $config['DefaultResourceTypes'] = '';
 
 $config['ResourceType'][] = Array(
 		'name' => 'file',				// Single quotes not allowed
-		'url' => 'https://file.dcm-info.com', // $baseUrl . 'file',
+		'url' =>  $baseUrl . 'file',
 		'directory' => $baseDir . 'file',
 		'maxSize' => 0,
 		'allowedExtensions' => '7z,aiff,asf,avi,bmp,csv,doc,docx,fla,flv,gif,gz,gzip,jpeg,jpg,mid,mov,mp3,mp4,mpc,mpeg,mpg,ods,odt,pdf,png,ppt,pptx,pxd,qt,ram,rar,rm,rmi,rmvb,rtf,sdc,sitd,swf,sxc,sxw,tar,tgz,tif,tiff,txt,vsd,wav,wma,wmv,xls,xlsx,zip',
@@ -276,7 +276,7 @@ $config['ResourceType'][] = Array(
 
 $config['ResourceType'][] = Array(
 		'name' => 'image',
-		'url' => 'https://image.dcm-info.com', // $baseUrl . 'image',
+		'url' => $baseUrl . 'image',
 		'directory' => $baseDir . 'image',
 		'maxSize' => 0,
 		'allowedExtensions' => 'bmp,gif,jpeg,jpg,png',
